@@ -7,7 +7,8 @@ const DigimonSearch = () => {
 	const [digimons, setDigimons] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
-	const [perPage] = useState(5); // Número de Digimons por página
+	const [perPage, setPerPage] = useState(5); // Número de Digimons por página
+	const [perPageOptions] = useState([5, 10, 15]);
 
 	useEffect(() => {
 		const fetchData = debounce(async () => {
@@ -53,6 +54,12 @@ const DigimonSearch = () => {
 		setCurrentPage(newPage);
 	};
 
+	const handlePerPageChange = (event) => {
+		const newPerPage = parseInt(event.target.value, 10);
+		setPerPage(newPerPage);
+		setCurrentPage(1); // Reiniciar a la primera página cuando cambias la cantidad por página
+	};
+
 	return (
 		<div className="main-wrapper">
 			<input
@@ -64,56 +71,66 @@ const DigimonSearch = () => {
 			/>
 
 			<div>
-				{loading && <p>Cargando...</p>}
-				{digimons.length > 0 ? (
-					<div className="card-wrapper">
-						{digimons.map((digimon) => (
-							<div className="digimon-card" key={digimon.id}>
-								<div className="digimon-card-header">
-									{digimon.images && digimon.images.length > 0 && (
-										<img
-											className="digimon-img"
-											src={digimon.images[0].href}
-											alt={digimon.name}
-										/>
-									)}
-									<h2>{digimon.name}</h2>
-								</div>
-								<div className="digimon-card-content">
-									<p> ID: {digimon.id ? digimon.id : null}</p>
-									{digimon.types && digimon.types.length > 0 && (
-										<p>
-											Type: {digimon.types.map((type) => type.type).join(", ")}
-										</p>
-									)}
-									{digimon.attributes && digimon.attributes.length > 0 && (
-										<p>
-											Attribute:{" "}
-											{digimon.attributes
-												.map((attribute) => attribute.attribute)
-												.join(", ")}
-										</p>
-									)}
-									<h3>Description:</h3>
-									{digimon.descriptions && digimon.descriptions.length > 0 ? (
-										<p>
-											{digimon.descriptions.find(
-												(desc) => desc.language === "en_us",
-											)?.description || digimon.descriptions[0].description}
-										</p>
-									) : (
-										<p className="no-description">
-											No hay descripción disponible.
-										</p>
-									)}
-								</div>
-							</div>
-						))}
-					</div>
-				) : (
-					<p>{!loading ? "No se encontraron Digimons" : ""}</p>
-				)}
+				<label htmlFor="perPage">Digimons por página: </label>
+				<select id="perPage" value={perPage} onChange={handlePerPageChange}>
+					{perPageOptions.map((option) => (
+						<option key={option} value={option}>
+							{option}
+						</option>
+					))}
+				</select>
 			</div>
+
+			{loading && <p>Cargando...</p>}
+			{digimons.length > 0 ? (
+				<div className="card-wrapper">
+					{digimons.map((digimon) => (
+						<div className="digimon-card" key={digimon.id}>
+							<div className="digimon-card-header">
+								{digimon.images && digimon.images.length > 0 && (
+									<img
+										className="digimon-img"
+										src={digimon.images[0].href}
+										alt={digimon.name}
+									/>
+								)}
+								<h2>{digimon.name}</h2>
+							</div>
+							<div className="digimon-card-content">
+								<p>ID: {digimon.id ? digimon.id : null}</p>
+								{digimon.types && digimon.types.length > 0 && (
+									<p>
+										Type: {digimon.types.map((type) => type.type).join(", ")}
+									</p>
+								)}
+								{digimon.attributes && digimon.attributes.length > 0 && (
+									<p>
+										Attribute:{" "}
+										{digimon.attributes
+											.map((attribute) => attribute.attribute)
+											.join(", ")}
+									</p>
+								)}
+								<h3>Description:</h3>
+								{digimon.descriptions && digimon.descriptions.length > 0 ? (
+									<p>
+										{digimon.descriptions.find(
+											(desc) => desc.language === "en_us",
+										)?.description || digimon.descriptions[0].description}
+									</p>
+								) : (
+									<p className="no-description">
+										No hay descripción disponible.
+									</p>
+								)}
+							</div>
+						</div>
+					))}
+				</div>
+			) : (
+				<p>{!loading ? "No se encontraron Digimons" : ""}</p>
+			)}
+
 			<div className="pagination">
 				<button
 					type="submit"
