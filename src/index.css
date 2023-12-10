@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+img {
+  width: 10%;
+  padding: 1rem;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-wrapper {
+  display: flex;
+  margin-top: 3rem;
+  justify-content: center;
+}
+
+.search-input {
+  font-size: large;
+  font-family: 'Courier New';
+  width: 28.5rem;
+  height: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.digimon-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 15%;
+  padding: 1rem;
+  margin: 0.5rem 0.5rem 0 0.5rem;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.digimon-card-header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.digimon-card-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.pagination {
+  margin-bottom: 3rem;
+}
+
+.pagination-button {
+  width: 20rem;
+  margin: 5rem;
+  height: 3rem;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.digimon-img {
+  width: 10rem;
+}
+
+.no-description {
+  color: black;
+  
+}
