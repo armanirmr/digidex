@@ -42,6 +42,7 @@ img {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  min-width: 20rem;
   width: 15%;
   padding: 1rem;
   margin: 0.5rem 0.5rem 0 0.5rem;
