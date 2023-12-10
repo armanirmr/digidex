@@ -70,7 +70,7 @@ const DigimonSearch = () => {
 				onChange={(e) => setSearchTerm(e.target.value)}
 			/>
 
-			<div>
+			<div className="dropdown-wrapper">
 				<label htmlFor="perPage">Digimons por página: </label>
 				<select id="perPage" value={perPage} onChange={handlePerPageChange}>
 					{perPageOptions.map((option) => (

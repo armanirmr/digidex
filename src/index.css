@@ -83,6 +83,9 @@ code {
 }
 
 .no-description {
-  color: black;
-  
+  color: black; 
+}
+
+.dropdown-wrapper {
+  margin-top: 10px;
 }
