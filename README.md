@@ -1,5 +1,5 @@
 # DigiDex
-This React application, named Digimon Search, is designed to allow users to explore information about Digimons (Digital Monsters) using the Digi API. The app provides a user-friendly interface for searching and viewing details about different Digimons, including their names, images, types, attributes, and descriptions.
+This React application, named DigiDex, is designed to allow users to explore information about Digimons (Digital Monsters) using the Digi API. The app provides a user-friendly interface for searching and viewing details about different Digimons, including their names, images, types, attributes, and descriptions.
 
 ## Features
 Search Functionality: Users can search for Digimons by name using the search input field. The application leverages Axios to fetch data from the Digi API in response to user queries.
