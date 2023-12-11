@@ -24,19 +24,19 @@ const DigimonSearch = () => {
 					const digimonsData = await Promise.all(requests);
 					setDigimons(digimonsData.map((res) => res.data));
 				} else {
-					const response = await axios.get(
-						`https://digi-api.com/api/v1/digimon/${searchTerm}`,
+					const searchResponse = await axios.get(
+						`https://digi-api.com/api/v1/digimon?name=${searchTerm}`,
 					);
-					const digimonData = response.data;
+					const searchDigimons = searchResponse.data.content;
 
-					if (Array.isArray(digimonData)) {
-						setDigimons(digimonData);
-					} else if (digimonData && typeof digimonData === "object") {
-						setDigimons([digimonData]);
-					} else {
-						console.error("Invalid response format");
-						setDigimons([]);
-					}
+					const detailedDigimons = await Promise.all(
+						searchDigimons.map((searchDigimon) =>
+							axios.get(searchDigimon.href),
+						),
+					);
+					const detailedDigimonData = detailedDigimons.map((res) => res.data);
+
+					setDigimons(detailedDigimonData);
 				}
 			} catch (error) {
 				console.error("Error fetching data:", error);
