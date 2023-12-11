@@ -163,7 +163,7 @@ img {
     display: none;
   }
 
-  .digimon-card:hover .digimon-card-content {
+  .digimon-card.active .digimon-card-content {
     display: flex;
   }
 }
