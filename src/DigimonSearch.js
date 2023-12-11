@@ -1,6 +1,7 @@
 import axios from "axios";
 import { debounce } from "lodash";
 import React, { useEffect, useState } from "react";
+import errorImage from "./error.webp";
 
 const DigimonSearch = () => {
 	const [searchTerm, setSearchTerm] = useState("");
@@ -128,7 +129,14 @@ const DigimonSearch = () => {
 					))}
 				</div>
 			) : (
-				<p>{!loading ? "No se encontraron Digimons" : ""}</p>
+				<div className="no-digimons">
+					<img
+						className="no-digimons-image"
+						src={errorImage}
+						alt="Imagen no encontrado"
+					/>
+					<p>{!loading ? "No se encontraron Digimons" : ""}</p>
+				</div>
 			)}
 
 			<div className="pagination">

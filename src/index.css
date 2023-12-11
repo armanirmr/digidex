@@ -1,8 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Kanit', sans-serif;
+  color: aliceblue;
+}
+
+.App::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('code.gif') center center/cover fixed;
+  filter: brightness(0.2); /* Ajusta el valor según sea necesario */
+  z-index: -1;
 }
 
 img {
@@ -31,6 +44,20 @@ img {
   flex-wrap: wrap;
 }
 
+.no-digimons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.no-digimons-image {
+  margin-top: 1rem;
+  width: 50%;
+}
+
 .search-input {
   font-size: large;
   font-family: 'Courier New';
@@ -38,7 +65,14 @@ img {
   width: 30%;
   height: 2rem;
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 30px;
+  border: none;
+  background-color: rgba(63, 74, 83, 0.37); /* Color de fondo similar al de las tarjetas */
+  color: aliceblue; /* Color del texto */
+}
+
+.search-input::placeholder {
+  color: aliceblue;
 }
 
 .digimon-card {
@@ -48,9 +82,18 @@ img {
   min-width: 20rem;
   width: 15%;
   padding: 1rem;
-  margin: 0.5rem 0.5rem 0 0.5rem;
-  border: 1px solid black;
+  margin: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.185);
   border-radius: 10px;
+  background-color: rgba(63, 74, 83, 0.37);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Ajusta los valores según sea necesario para el efecto deseado */
+  filter: brightness(1.2); /* Ajusta el brillo según sea necesario */
+  transition: box-shadow 0.3s, transform 0.3s; /* Agrega una transición suave */
+}
+
+.digimon-card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Cambia el efecto de sombra en el hover */
+  transform: scale(1.05); /* Ajusta la escala para un efecto más pronunciado en el hover */
 }
 
 .digimon-card-header {
@@ -58,12 +101,15 @@ img {
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  background: white;
+  color: black;
 }
 
 .digimon-card-content {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  font-weight: 300;
 }
 
 .pagination {
@@ -72,11 +118,37 @@ img {
 
 .pagination-button {
   width: 20rem;
-  margin: 5rem;
   height: 3rem;
+  margin: 5rem;
+  border: 1px solid white;
+  background: transparent;
+  color: aliceblue;
+  transition: background 0.3s, color 0.3s;
+  border-radius: 10px;
 }
 
-@media screen and (max-width: 600px) {
+.pagination-button:hover {
+  background: aliceblue;
+  color: black;
+  font-weight:900;
+}
+
+.pagination-button:disabled {
+  background: transparent;
+  color: #666; /* Color de texto cuando el botón está deshabilitado */
+  cursor: not-allowed; /* Cambia el cursor cuando está deshabilitado */
+}
+
+.pagination-button:hover:disabled {
+  background: transparent;
+  color: #666;
+}
+
+@media screen and (max-width: 800px) {
+  .digimon-card {
+    width: 80%; /* Ajusta el ancho según sea necesario */
+  }
+
   .pagination {
     display: flex;
   }
@@ -98,7 +170,7 @@ code {
 }
 
 .no-description {
-  color: black; 
+  color: aliceblue;
 }
 
 .dropdown-wrapper {
