@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/digidex/static/css/main.287bad4b.css",
+    "main.js": "/digidex/static/js/main.0c170310.js",
+    "static/media/digimon-logo.png": "/digidex/static/media/digimon-logo.3ef5dd7f798c7dfb8a81.png",
+    "index.html": "/digidex/index.html",
+    "main.287bad4b.css.map": "/digidex/static/css/main.287bad4b.css.map",
+    "main.0c170310.js.map": "/digidex/static/js/main.0c170310.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.287bad4b.css",
+    "static/js/main.0c170310.js"
+  ]
+}
