@@ -158,6 +158,14 @@ img {
     margin: 1rem 1rem 0 1rem;
     height: 3rem;
   }
+
+  .digimon-card-content {
+    display: none;
+  }
+
+  .digimon-card:hover .digimon-card-content {
+    display: flex;
+  }
 }
 
 code {
