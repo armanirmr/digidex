@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/digidex/static/css/main.287bad4b.css",
-    "main.js": "/digidex/static/js/main.d3521439.js",
+    "main.css": "/digidex/static/css/main.0fd212a3.css",
+    "main.js": "/digidex/static/js/main.54ab9edc.js",
+    "static/media/code.gif": "/digidex/static/media/code.bbdfb04d70afe01e0b3e.gif",
     "static/media/digimon-logo.png": "/digidex/static/media/digimon-logo.3ef5dd7f798c7dfb8a81.png",
+    "static/media/error.webp": "/digidex/static/media/error.c55f40c3058f50086199.webp",
     "index.html": "/digidex/index.html",
-    "main.287bad4b.css.map": "/digidex/static/css/main.287bad4b.css.map",
-    "main.d3521439.js.map": "/digidex/static/js/main.d3521439.js.map"
+    "main.0fd212a3.css.map": "/digidex/static/css/main.0fd212a3.css.map",
+    "main.54ab9edc.js.map": "/digidex/static/js/main.54ab9edc.js.map"
   },
   "entrypoints": [
-    "static/css/main.287bad4b.css",
-    "static/js/main.d3521439.js"
+    "static/css/main.0fd212a3.css",
+    "static/js/main.54ab9edc.js"
   ]
 }
